@@ -1,0 +1,30 @@
+services:
+  api:
+    build:
+      context: ./apps/api
+    environment:
+      API_CORS_ORIGINS: http://localhost:3000
+      MAX_UPLOAD_SIZE_MB: 10
+      REMBG_MODEL: u2netp
+    ports:
+      - "8001:8000"
+
+  web:
+    build:
+      context: ./apps/web
+      args:
+        NEXT_PUBLIC_API_BASE_URL: http://localhost:8001
+    environment:
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:8001
+      API_INTERNAL_URL: http://api:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+
+
+
+
+
+      

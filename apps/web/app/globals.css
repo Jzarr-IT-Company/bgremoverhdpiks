@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #fbfaf7;
+  color: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(135deg, rgba(22, 163, 74, 0.08), transparent 36%),
+    linear-gradient(225deg, rgba(239, 68, 68, 0.07), transparent 34%),
+    #fbfaf7;
+  color: #111827;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.checkerboard {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(45deg, #e7e5df 25%, transparent 25%),
+    linear-gradient(-45deg, #e7e5df 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e7e5df 75%),
+    linear-gradient(-45deg, transparent 75%, #e7e5df 75%);
+  background-position:
+    0 0,
+    0 10px,
+    10px -10px,
+    -10px 0;
+  background-size: 20px 20px;
+}
+
+.scan-line {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 42%,
+      rgba(22, 163, 74, 0.05) 44%,
+      rgba(22, 163, 74, 0.45) 50%,
+      rgba(255, 255, 255, 0.85) 51%,
+      rgba(22, 163, 74, 0.25) 56%,
+      transparent 60%,
+      transparent 100%
+    );
+  animation: scanSweep 1.7s ease-in-out infinite;
+}
+
+.processing-orb {
+  position: absolute;
+  display: grid;
+  height: 118px;
+  width: 118px;
+  place-items: center;
+}
+
+.processing-orb span {
+  position: absolute;
+  border-radius: 9999px;
+  border: 1px solid rgba(22, 163, 74, 0.34);
+  animation: orbitPulse 1.8s ease-in-out infinite;
+}
+
+.processing-orb span:nth-child(1) {
+  inset: 16px;
+}
+
+.processing-orb span:nth-child(2) {
+  inset: 28px;
+  animation-delay: 0.18s;
+}
+
+.processing-orb span:nth-child(3) {
+  inset: 40px;
+  animation-delay: 0.36s;
+}
+
+.progress-pulse {
+  animation: progressPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes scanSweep {
+  0% {
+    transform: translateY(-58%);
+    opacity: 0;
+  }
+
+  16% {
+    opacity: 1;
+  }
+
+  82% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(58%);
+    opacity: 0;
+  }
+}
+
+@keyframes orbitPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.92);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes progressPulse {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}

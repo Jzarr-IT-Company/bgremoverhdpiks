@@ -1,0 +1,50 @@
+services:
+  api:
+    build:
+      context: ./apps/api
+    restart: unless-stopped
+    environment:
+      API_CORS_ORIGINS: ${APP_ORIGIN}
+      MAX_UPLOAD_SIZE_MB: ${MAX_UPLOAD_SIZE_MB:-10}
+      REMBG_MODEL: ${REMBG_MODEL:-u2netp}
+    expose:
+      - "8000"
+    volumes:
+      - rembg_models:/root/.u2net
+
+  web:
+    build:
+      context: ./apps/web
+      args:
+        NEXT_PUBLIC_SITE_URL: ${APP_ORIGIN}
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      API_INTERNAL_URL: http://api:8000
+      NEXT_PUBLIC_SITE_URL: ${APP_ORIGIN}
+    expose:
+      - "3000"
+    depends_on:
+      - api
+
+  caddy:
+    image: caddy:2.8-alpine
+    restart: unless-stopped
+    environment:
+      APP_DOMAIN: ${APP_DOMAIN}
+      CADDY_EMAIL: ${CADDY_EMAIL}
+      MAX_UPLOAD_SIZE_MB: ${MAX_UPLOAD_SIZE_MB:-10}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - web
+
+volumes:
+  caddy_data:
+  caddy_config:
+  rembg_models:

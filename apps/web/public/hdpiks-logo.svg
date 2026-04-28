@@ -1,0 +1,7 @@
+<svg width="420" height="120" viewBox="0 0 420 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="420" height="120" rx="12" fill="#050505"/>
+  <path d="M42 86V34H98V86H74V62H60V86H42Z" stroke="#A855F7" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M60 62V50H82V62H60Z" stroke="#A855F7" stroke-width="8" stroke-linejoin="round"/>
+  <text x="122" y="76" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="800">HD</text>
+  <text x="190" y="76" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="300">Piks</text>
+</svg>
