@@ -36,8 +36,6 @@ export function AppFooter() {
           <div>
             <a
               href="https://hdpiks.com/"
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center gap-3"
             >
               <Image
@@ -142,14 +140,14 @@ export function AppFooter() {
         </div>
 
         <div className="bg-black/20 px-4 py-4 text-center text-sm">
-          © 2026 HDpicks - Powered by{" "}
+          © 2026 HDpicks - Design & Developed by{" "}
           <a
-            href="https://jzarr.com/"
+            href="https://jzarrtech.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold underline underline-offset-4"
           >
-            JZARR IT COMPANY
+            JzarrTech.Com
           </a>
         </div>
       </div>

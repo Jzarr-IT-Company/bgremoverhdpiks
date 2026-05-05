@@ -13,22 +13,20 @@ export default function Home() {
     <main className="min-h-screen text-ink">
       <div className="border-b border-white/20 bg-[#221122] text-white">
         <div className="mx-auto flex min-h-[78px] w-full max-w-[1880px] items-center justify-between gap-6 px-5 sm:px-8">
-          <a
-            href="https://hdpiks.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mr-[18px] inline-flex shrink-0 items-center"
-            aria-label="Open HDpiks"
-          >
-            <Image
-              src="/logo.png"
-              alt="HDpiks"
-              width={150}
-              height={40}
-              priority
-              className="block h-10 w-[150px] object-cover object-left"
-            />
-          </a>
+         <a
+  href="https://hdpiks.com/"
+  className="mr-[18px] inline-flex shrink-0 items-center"
+  aria-label="Open HDpiks"
+>
+  <Image
+    src="/logo.png"
+    alt="HDpiks"
+    width={150}
+    height={40}
+    priority
+    className="block h-10 w-[150px] object-cover object-left"
+  />
+</a>
 
           <nav className="hidden flex-1 items-center gap-6 text-base font-semibold lg:flex">
             {navLinks.map((link) => (
